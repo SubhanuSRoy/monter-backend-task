@@ -17,6 +17,7 @@ mongoose
 // Routes
 app.use("/api", require("./routes/auth"));
 app.use("/profile", require("./routes/profile"));
+app.use('/jwt', require('./routes/user')); 
 
 // Start server
 const PORT = process.env.PORT || 5000;

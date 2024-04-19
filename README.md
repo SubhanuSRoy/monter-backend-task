@@ -10,11 +10,11 @@
 - made email sender service using nodemailer
 - implement OTP generation to verify email
 - implement addition of info after verification
-
-# Tasks left
-- add JWT
+- add JWT token for login
+- get user details from token in header
 - testing
 - documentation
+
 
 ## api/register
 ![/register working](images/register.png)
@@ -36,3 +36,9 @@
 
 ## details added to mongo
 ![details added to mongo](images/add-info-mongo.png)
+
+## jwt token generated on login
+![jwt token generated on login](images/login-route.png)
+
+## /user details with jwt token in header
+![/user details with jwt token in header](images/get-user-details.png)
