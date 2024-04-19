@@ -9,14 +9,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect(process.env.MONGODB_URI, {});
 
 // Routes
 app.use('/api', require('./routes/auth'));
+app.use('/profile', require('./routes/profile'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
