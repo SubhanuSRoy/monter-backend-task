@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   age: Number,
   workDetails: String,
   isVerified: { type: Boolean, default: false },
+  otp: String,
 });
 
 const User = mongoose.model('User', userSchema);
