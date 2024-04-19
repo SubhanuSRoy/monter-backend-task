@@ -1,11 +1,16 @@
 # monter-backend-task
  monter backend task done by Subhanu Sankar Roy, for Backend Engineer Intern
 
+## hosted API link
+https://monter-backend-task-cjj5.onrender.com
+
 ## how to run server
 - nodemon app.js
 - add in .env 
 > JWT_SECRET=QJx7E2z8jA3RbT9yP5sWvU1zC6yF4gH2
 > MONGODB_URI=mongodb://localhost:27017/monter
+> email and app-specific password
+- mongo is set up locally
 
 # Tasks completed
 - Created basic node and express application
