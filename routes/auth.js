@@ -1,10 +1,13 @@
+// routes/auth.js
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const sendEmail = require('../utils/sendEmail');
+const OTP_LENGTH = 6; // Length of OTP
 
-// Route to sign up the user with email and password
+// POST /api/register
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -15,6 +18,12 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ msg: 'User already exists' });
     }
 
+    // Generate OTP
+    const otp = Math.floor(100000 + Math.random() * 900000); 
+
+    // Send OTP via email
+    await sendEmail(email, otp.toString());
+
     // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -23,11 +32,10 @@ router.post('/register', async (req, res) => {
     user = new User({
       email,
       password: hashedPassword,
+      otp, 
     });
 
     await user.save();
-
-    
 
     res.json({ msg: 'User registered successfully' });
   } catch (err) {
