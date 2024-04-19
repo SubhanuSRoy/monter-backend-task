@@ -16,7 +16,7 @@
 - testing
 - documentation
 
-## /register
+## api/register
 ![/register working](images/register.png)
 
 ## unverified user added to mongo, hashed password
@@ -25,8 +25,14 @@
 ## OTP sent to email
 ![otp sent to email](images/otp-email.png)
 
-## /verify
+## api/verify
 ![user verify route](images/user-verify-route.png)
 
 ## User verified on mongo
-![alt text](images/user-verified-mongo.png)
+![user verified](images/user-verified-mongo.png)
+
+## profile/addInfo
+![add info](images/add-info-route.png)
+
+## details added to mongo
+![details added to mongo](images/add-info-mongo.png)
