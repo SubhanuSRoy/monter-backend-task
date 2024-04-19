@@ -1,6 +1,11 @@
 # monter-backend-task
- monter backend task done by Subhanu
+ monter backend task done by Subhanu Sankar Roy, for Backend Engineer Intern
 
+## how to run server
+- nodemon app.js
+- add in .env 
+> JWT_SECRET=QJx7E2z8jA3RbT9yP5sWvU1zC6yF4gH2
+> MONGODB_URI=mongodb://localhost:27017/monter
 
 # Tasks completed
 - Created basic node and express application
