@@ -8,7 +8,7 @@ const sendEmail = require("../utils/sendEmail");
 const OTP_LENGTH = 6; // Length of OTP
 
 router.get("/", (req, res) => {
-    return res.status(200).json({ msg: "API working..." });
+  return res.status(200).json({ msg: "API working..." });
 });
 
 // POST /api/register
@@ -42,7 +42,7 @@ router.post("/register", async (req, res) => {
 
     await user.save();
 
-    res.json({
+    res.status(201).json({
       msg: "User registered successfully, but unverified. Please use /verify to verify the email.",
     });
   } catch (err) {
@@ -60,7 +60,7 @@ router.post("/verify", async (req, res) => {
     const user = await User.findOne({ email, otp });
     if (!user) {
       return res
-        .status(400)
+        .status(403)
         .json({ msg: "Invalid OTP or email is not registered" });
     }
 
@@ -68,7 +68,7 @@ router.post("/verify", async (req, res) => {
     user.isVerified = true;
     await user.save();
 
-    res.json({
+    res.status(202).json({
       msg: "Account verified successfully. You can proceed to profile addition.",
     });
   } catch (err) {
