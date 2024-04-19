@@ -77,4 +77,50 @@ router.post("/verify", async (req, res) => {
   }
 });
 
+
+// POST /api/login
+router.post('/login', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+  
+      // Check if user exists
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ msg: 'User does not exist' });
+      }
+  
+      // Check if password is correct
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ msg: 'Invalid credentials' });
+      }
+  
+      // Check if user is verified
+      if (!user.isVerified) {
+        return res.status(400).json({ msg: 'Account not verified' });
+      }
+  
+      // Generate JWT token
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+  
+      jwt.sign(
+        payload,
+        process.env.JWT_SECRET,
+        { expiresIn: 3600 }, // Token expires in 1 hour
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  });
+  
+
 module.exports = router;
