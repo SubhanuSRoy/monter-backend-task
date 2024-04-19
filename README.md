@@ -15,3 +15,18 @@
 - add JWT
 - testing
 - documentation
+
+## /register
+![/register working](images/register.png)
+
+## unverified user added to mongo, hashed password
+![unverified user added to mongo](images/unverified-mongo.png)
+
+## OTP sent to email
+![otp sent to email](images/otp-email.png)
+
+## /verify
+![user verify route](images/user-verify-route.png)
+
+## User verified on mongo
+![alt text](images/user-verified-mongo.png)
