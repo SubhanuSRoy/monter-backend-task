@@ -4,6 +4,10 @@
 ## hosted API link
 https://monter-backend-task-cjj5.onrender.com
 
+## Postman collection link
+https://www.postman.com/postman-resources/workspace/monter/collection/22489786-b7a8a8a3-9f30-45c4-b24a-2cf193b4f667?action=share&creator=22489786
+
+
 ## how to run server
 - nodemon app.js
 - add in .env 
